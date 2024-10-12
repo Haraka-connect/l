@@ -1,0 +1,36 @@
+{
+  "builds": [
+    {
+      "src": "index.html", // Entry point for your frontend
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)", // Capture all routes
+      "dest": "/index.html" // Serve the index.html for all routes
+    }
+  ]
+}
+{
+  "builds": [
+    {
+      "src": "api/**/*.js", // Backend API routes
+      "use": "@vercel/node"
+    },
+    {
+      "src": "index.html", // Frontend
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)", // Route all API requests to backend
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*)", // Route all other requests to frontend
+      "dest": "/index.html"
+    }
+  ]
+}
