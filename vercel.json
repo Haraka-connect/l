@@ -11,8 +11,12 @@
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "/backend/api/$1"
+      "src": "/api/signup",
+      "dest": "/backend/api/signup.js"
+    },
+    {
+      "src": "/api/login",
+      "dest": "/backend/api/login.js"
     },
     {
       "src": "/(.*)",
